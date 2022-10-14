@@ -10,7 +10,7 @@ function validateID(req, res) {
 }
 
 //return all users
-const usersReturn = async (req, res) => {
+const usersGet = async (req, res) => {
   const result = await mongodb
     .getDatabase()
     .db("marriot_hotel_api")
@@ -23,7 +23,7 @@ const usersReturn = async (req, res) => {
 };
 
 //return one user
-const userReturn = async (req, res) => {
+const userGet = async (req, res) => {
   validateID(req, res);
   const userID = new ObjectId(req.params.ID);
   const result = await mongodb
@@ -46,11 +46,8 @@ const userPost = async (req, res) => {
   const user = {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
-    userLevel: req.body.userLevel,
-    role: req.body.role,
-    department: req.body.department,
-    transactionCount: req.body.transactionCount,
     email: req.body.email,
+    lastName: req.body.phone,
   };
   const result = await mongodb
     .getDatabase()
@@ -87,7 +84,7 @@ const userDelete = async (req, res) => {
 };
 
 //create one user
-const userUpdate = async (req, res) => {
+const userPut = async (req, res) => {
   validateID(req, res);
   // console.log( req.body);
   // const uriBody = JSON.parse(req.body);
@@ -116,14 +113,9 @@ const userUpdate = async (req, res) => {
 };
 
 module.exports = {
-  transactionsReturn,
-  transactionReturn,
-  transactionPost,
-  transactionDelete,
-  transactionUpdate,
-  usersReturn,
-  userReturn,
+  userGet,
+  usersGet,
   userPost,
   userDelete,
-  userUpdate,
+  userPut,
 };
