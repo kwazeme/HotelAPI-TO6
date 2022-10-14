@@ -12,7 +12,7 @@ function validateID(req, res) {
 //return all users
 const usersGet = async (req, res) => {
   const result = await mongodb
-    .getDatabase()
+    .getDb()
     .db()
     .collection("user")
     .find();
@@ -27,7 +27,7 @@ const userGet = async (req, res) => {
   validateID(req, res);
   const userID = new ObjectId(req.params.ID);
   const result = await mongodb
-    .getDatabase()
+    .getDb()
     .db()
     .collection("user")
     .find({ _id: userID });
@@ -50,7 +50,7 @@ const userPost = async (req, res) => {
     phone: req.body.phone,
   };
   const result = await mongodb
-    .getDatabase()
+    .getDb()
     .db()
     .collection("user")
     .insertOne(user);
@@ -68,7 +68,7 @@ const userDelete = async (req, res) => {
   validateID(req, res);
   const userID = new ObjectId(req.params.ID);
   const result = await mongodb
-    .getDatabase()
+    .getDb()
     .db()
     .collection("user")
     .deleteOne({ _id: userID });
@@ -99,7 +99,7 @@ const userPut = async (req, res) => {
     email: req.body.email,
   };
   const result = await mongodb
-    .getDatabase()
+    .getDb()
     .db()
     .collection("user")
     .updateOne({ _id: userID }, { $set: user });
