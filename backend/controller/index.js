@@ -1,5 +1,5 @@
 const { response } = require("express");
-const mongodb = require("../database/");
+const mongodb = require("../db/connect");
 const ObjectId = require("mongodb").ObjectId;
 
 //ID validator
@@ -13,8 +13,8 @@ function validateID(req, res) {
 const usersReturn = async (req, res) => {
   const result = await mongodb
     .getDatabase()
-    .db("financeProject")
-    .collection("users")
+    .db("marriot_hotel_api")
+    .collection("user")
     .find();
   result.toArray().then((lists) => {
     res.setHeader("Content-type", "application/json");
@@ -28,8 +28,8 @@ const userReturn = async (req, res) => {
   const userID = new ObjectId(req.params.ID);
   const result = await mongodb
     .getDatabase()
-    .db("financeProject")
-    .collection("users")
+    .db("marriot_hotel_api")
+    .collection("user")
     .find({ _id: userID });
   result.toArray().then((lists) => {
     res.setHeader("Content-type", "application/json");
@@ -54,8 +54,8 @@ const userPost = async (req, res) => {
   };
   const result = await mongodb
     .getDatabase()
-    .db("financeProject")
-    .collection("users")
+    .db("marriot_hotel_api")
+    .collection("user")
     .insertOne(user);
   if (result.acknowledged) {
     res.status(201).json(response);
@@ -72,8 +72,8 @@ const userDelete = async (req, res) => {
   const userID = new ObjectId(req.params.ID);
   const result = await mongodb
     .getDatabase()
-    .db("financeProject")
-    .collection("users")
+    .db("marriot_hotel_api")
+    .collection("user")
     .deleteOne({ _id: userID });
   if (result.deletedCount > 0) {
     res.status(204).send();
@@ -103,8 +103,8 @@ const userUpdate = async (req, res) => {
   };
   const result = await mongodb
     .getDatabase()
-    .db("financeProject")
-    .collection("users")
+    .db("marriot_hotel_api")
+    .collection("user")
     .updateOne({ _id: userID }, { $set: user });
   if (result.acknowledged) {
     res.status(201).json(response);
