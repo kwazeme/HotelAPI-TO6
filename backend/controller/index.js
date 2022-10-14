@@ -13,7 +13,7 @@ function validateID(req, res) {
 const usersGet = async (req, res) => {
   const result = await mongodb
     .getDatabase()
-    .db("marriot_hotel_api")
+    .db()
     .collection("user")
     .find();
   result.toArray().then((lists) => {
@@ -28,7 +28,7 @@ const userGet = async (req, res) => {
   const userID = new ObjectId(req.params.ID);
   const result = await mongodb
     .getDatabase()
-    .db("marriot_hotel_api")
+    .db()
     .collection("user")
     .find({ _id: userID });
   result.toArray().then((lists) => {
@@ -47,11 +47,11 @@ const userPost = async (req, res) => {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
-    lastName: req.body.phone,
+    phone: req.body.phone,
   };
   const result = await mongodb
     .getDatabase()
-    .db("marriot_hotel_api")
+    .db()
     .collection("user")
     .insertOne(user);
   if (result.acknowledged) {
@@ -59,7 +59,7 @@ const userPost = async (req, res) => {
   } else {
     res
       .status(500)
-      .json(response.error || "some error occurred while creaing the user.");
+      .json(response.error || "some error occurred while creating the user.");
   }
 };
 
@@ -69,7 +69,7 @@ const userDelete = async (req, res) => {
   const userID = new ObjectId(req.params.ID);
   const result = await mongodb
     .getDatabase()
-    .db("marriot_hotel_api")
+    .db()
     .collection("user")
     .deleteOne({ _id: userID });
   if (result.deletedCount > 0) {
@@ -77,7 +77,7 @@ const userDelete = async (req, res) => {
   } else {
     res
       .status(500)
-      .json(response.error || "somthing went wrong while delteing the user.");
+      .json(response.error || "somthing went wrong while deleting the user.");
   }
   // res.setHeader('Content-type', 'application/json');
   // res.status(200).send(result);
@@ -100,7 +100,7 @@ const userPut = async (req, res) => {
   };
   const result = await mongodb
     .getDatabase()
-    .db("marriot_hotel_api")
+    .db()
     .collection("user")
     .updateOne({ _id: userID }, { $set: user });
   if (result.acknowledged) {
@@ -108,7 +108,7 @@ const userPut = async (req, res) => {
   } else {
     res
       .status(500)
-      .json(response.error || "some error occurred while creaing the user.");
+      .json(response.error || "some error occurred while creating the user.");
   }
 };
 
@@ -117,5 +117,5 @@ module.exports = {
   usersGet,
   userPost,
   userDelete,
-  userPut,
+  userPut
 };
