@@ -1,0 +1,59 @@
+// LOCALHOST
+###
+GET http://localhost:3000/contacts
+###
+GET http://localhost:3000/contacts/622023f642f9ab4cd6e060b2
+###
+GET http://localhost:3000/contacts/622023f642f9ab4cd6e060b3
+###
+GET http://localhost:3000/contacts/622023f642f9ab4cd6e060b4
+
+###
+DELETE http://localhost:3000/contacts/6343667ce6be1bf6e017aee3 
+
+// PRODUCTION Deploy
+###
+GET https://cse.onrender.com/contacts
+###
+GET https://cse.onrender.com/contacts/63325276f877b1ca857c2c0c
+###
+GET https://cse.onrender.com/contacts/63350e0299f1f7f821081dd4
+###
+GET https://cse.onrender.com/contacts/63435baee6be1bf6e00094c4
+###
+GET https://cse.onrender.com/contacts/6343667ce6be1bf6e017aee3
+
+
+
+
+
+
+### Create contact
+POST https://cse.onrender.com/contacts HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"John",
+    "lastName":"West",
+    "email":"West12@gmail.com",
+    "favoriteColor":"Brown",
+    "birthday":"07/28/95"
+}
+
+
+### PUT contact
+PUT https://cse.onrender.com/contacts/63325276f877b1ca857c2c0c HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Sarah",
+    "lastName":"Birch",
+    "email":"sarahB@gmail.com",
+    "favoriteColor":"Yellow",
+    "birthday":"06/12/20",
+    "sport": "soccer"
+}
+
+
+### DELETE contact
+DELETE https://cse.onrender.com/contacts/6343667ce6be1bf6e017aee3 HTTP/1.1
