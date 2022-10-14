@@ -2,13 +2,13 @@
   "name": "hotelsapi_team06",
   "version": "1.0.0",
   "description": "Merriot Hotels API Team 06",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node app.js",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
-    "test": "nodemon index.js"
+    "test": "nodemon app.js"
   },
   "repository": {
     "type": "git",
