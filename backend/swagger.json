@@ -12,8 +12,8 @@
     ],
     "tags": [
         {
-            "name": "Location",
-            "description": "Merriot Hotel Locations",
+            "name": "user",
+            "description": "Merriot Hotel users",
             "externalDocs": {
                 "description": "",
                 "url": ""
@@ -33,7 +33,7 @@
         }
     ],
     "paths": {
-        "/ss_hotels/": {
+        "/user/": {
             "get": {
                 "tags": [
                     "Catalogue"
