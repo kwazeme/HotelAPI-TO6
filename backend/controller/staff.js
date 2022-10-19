@@ -4,33 +4,29 @@ const ObjectId = require("mongodb").ObjectId;
 
 //ID validator
 function validateID(req, res) {
-  if (!ObjectId.isValid(req.params.ID)) {
+  if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json("Must use a valid id.");
   }
 }
 
-//return all users
-const usersGet = async (req, res) => {
-  const result = await mongodb
-    .getDb()
-    .db()
-    .collection("user")
-    .find();
+//return all staffs
+const staffsGet = async (req, res) => {
+  const result = await mongodb.getDb().db().collection("staff").find();
   result.toArray().then((lists) => {
     res.setHeader("Content-type", "application/json");
     res.status(200).json(lists);
   });
 };
 
-//return one user
-const userGet = async (req, res) => {
+//return one staff
+const staffGet = async (req, res) => {
   validateID(req, res);
-  const userID = new ObjectId(req.params.ID);
+  const staffID = new ObjectId(req.params.id);
   const result = await mongodb
     .getDb()
     .db()
-    .collection("user")
-    .find({ _id: userID });
+    .collection("staff")
+    .find({ _id: staffID });
   result.toArray().then((lists) => {
     res.setHeader("Content-type", "application/json");
     res.status(200).json(lists);
@@ -39,83 +35,80 @@ const userGet = async (req, res) => {
   // res.status(200).send(result);
 };
 
-//create one user
-const userPost = async (req, res) => {
+//create one staff
+const staffPost = async (req, res) => {
   // console.log( req.body);
   // const uriBody = JSON.parse(req.body);
-  const user = {
+  const staff = {
+    locationId: req.body.locationId,
+    staffType: req.body.staffType,
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
-    phone: req.body.phone,
+    phone: req.body.phone
   };
-  const result = await mongodb
-    .getDb()
-    .db()
-    .collection("user")
-    .insertOne(user);
+  const result = await mongodb.getDb().db().collection("staff").insertOne(staff);
   if (result.acknowledged) {
     res.status(201).json(response);
   } else {
     res
       .status(500)
-      .json(response.error || "some error occurred while creating the user.");
+      .json(response.error || "some error occurred while creating the staff.");
   }
 };
 
-//delete one user
-const userDelete = async (req, res) => {
+//delete one staff
+const staffDelete = async (req, res) => {
   validateID(req, res);
-  const userID = new ObjectId(req.params.ID);
+  const staffID = new ObjectId(req.params.id);
   const result = await mongodb
     .getDb()
     .db()
-    .collection("user")
-    .deleteOne({ _id: userID });
+    .collection("staff")
+    .deleteOne({ _id: staffID });
   if (result.deletedCount > 0) {
     res.status(204).send();
   } else {
     res
       .status(500)
-      .json(response.error || "somthing went wrong while deleting the user.");
+      .json(response.error || "somthing went wrong while deleting the staff.");
   }
   // res.setHeader('Content-type', 'application/json');
   // res.status(200).send(result);
 };
 
-//create one user
-const userPut = async (req, res) => {
+//create one staff
+const staffPut = async (req, res) => {
   validateID(req, res);
   // console.log( req.body);
   // const uriBody = JSON.parse(req.body);
-  const userID = new ObjectId(req.params.ID);
-  const user = {
+  const staffID = new ObjectId(req.params.id);
+  const staff = {
+    locationId: req.body.locationId,
+    staffType: req.body.staffType,
     firstName: req.body.firstName,
     lastName: req.body.lastName,
-    userLevel: req.body.userLevel,
-    role: req.body.role,
-    department: req.body.department,
-    transactionCount: req.body.transactionCount,
     email: req.body.email,
+    phone: req.body.phone
   };
   const result = await mongodb
     .getDb()
     .db()
-    .collection("user")
-    .updateOne({ _id: userID }, { $set: user });
+    .collection("staff")
+    .updateOne({ _id: staffID }, { $set: staff });
   if (result.acknowledged) {
     res.status(201).json(response);
   } else {
     res
       .status(500)
-      .json(response.error || "some error occurred while creating the user.");
+      .json(response.error || "some error occurred while creating the staff.");
   }
 };
 
 module.exports = {
-  userGet,
-  usersGet,
-  userPost,
-  userDelete,
-  userPut
+  staffGet,
+  staffsGet,
+  staffPost,
+  staffDelete,
+  staffPut,
 };
