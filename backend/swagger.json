@@ -1,8 +1,8 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "HOTEL API",
-    "description": "HOTEL API",
+    "title": "Merriott Hotel API Team",
+    "description": "CSE340 Team 06 API Project",
     "version": "1.0.0"
   },
   "host": "hotelapiteamproject.onrender.com",
@@ -10,9 +10,46 @@
   "schemes": [
     "https"
   ],
+  "tags": [
+    {
+      "name": "Users",
+      "description": "user collection routes",
+      "externalDocs": {
+        "description": "",
+        "url": "https://hotelapiteamproject.onrender.com/user"
+      }
+    },
+    {
+      "name": "Staff",
+      "description": "hotel staff routes",
+      "externalDocs": {
+        "description": "",
+        "url": "https://hotelapiteamproject.onrender.com/staff"
+      }
+    },
+    {
+      "name": "Reservation",
+      "description": "hotel reservation routes",
+      "externalDocs": {
+        "description": "",
+        "url": "https://hotelapiteamproject.onrender.com/reservations"
+      }
+    },
+    {
+      "name": "Locations",
+      "description": "merriott hotel locations",
+      "externalDocs": {
+        "description": "",
+        "url": "https://hotelapiteamproject.onrender.com/locations"
+      }
+    }
+  ],
   "paths": {
     "/user/": {
       "get": {
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -25,6 +62,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "parameters": [
           {
@@ -61,6 +101,9 @@
     },
     "/user/{id}": {
       "get": {
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -80,6 +123,9 @@
         }
       },
       "put": {
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "parameters": [
           {
@@ -100,19 +146,10 @@
                 "lastName": {
                   "example": "any"
                 },
-                "userLevel": {
-                  "example": "any"
-                },
-                "role": {
-                  "example": "any"
-                },
-                "department": {
-                  "example": "any"
-                },
-                "transactionCount": {
-                  "example": "any"
-                },
                 "email": {
+                  "example": "any"
+                },
+                "phone": {
                   "example": "any"
                 }
               }
@@ -129,6 +166,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "parameters": [
           {
@@ -150,6 +190,9 @@
     },
     "/staff/": {
       "get": {
+        "tags": [
+          "Staff"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -162,6 +205,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Staff"
+        ],
         "description": "",
         "parameters": [
           {
@@ -176,16 +222,13 @@
                 "staffType": {
                   "example": "any"
                 },
-                "firstName": {
+                "userId": {
                   "example": "any"
                 },
-                "lastName": {
+                "checkInDate": {
                   "example": "any"
                 },
-                "email": {
-                  "example": "any"
-                },
-                "phone": {
+                "checkOutDate": {
                   "example": "any"
                 }
               }
@@ -204,6 +247,9 @@
     },
     "/staff/{id}": {
       "get": {
+        "tags": [
+          "Staff"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -223,6 +269,9 @@
         }
       },
       "put": {
+        "tags": [
+          "Staff"
+        ],
         "description": "",
         "parameters": [
           {
@@ -230,45 +279,14 @@
             "in": "path",
             "required": true,
             "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "locationId": {
-                  "example": "any"
-                },
-                "staffType": {
-                  "example": "any"
-                },
-                "firstName": {
-                  "example": "any"
-                },
-                "lastName": {
-                  "example": "any"
-                },
-                "email": {
-                  "example": "any"
-                },
-                "phone": {
-                  "example": "any"
-                }
-              }
-            }
           }
         ],
-        "responses": {
-          "201": {
-            "description": "Created"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
+        "responses": {}
       },
       "delete": {
+        "tags": [
+          "Staff"
+        ],
         "description": "",
         "parameters": [
           {
@@ -278,18 +296,14 @@
             "type": "string"
           }
         ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
+        "responses": {}
       }
     },
     "/reservation/": {
       "get": {
+        "tags": [
+          "Reservation"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -302,6 +316,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Reservation"
+        ],
         "description": "",
         "parameters": [
           {
@@ -323,9 +340,6 @@
                   "example": "any"
                 },
                 "checkOutDate": {
-                  "example": "any"
-                },
-                "price": {
                   "example": "any"
                 }
               }
@@ -344,6 +358,9 @@
     },
     "/reservation/{id}": {
       "get": {
+        "tags": [
+          "Reservation"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -363,6 +380,9 @@
         }
       },
       "put": {
+        "tags": [
+          "Reservation"
+        ],
         "description": "",
         "parameters": [
           {
@@ -370,45 +390,14 @@
             "in": "path",
             "required": true,
             "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "locationId": {
-                  "example": "any"
-                },
-                "roomId": {
-                  "example": "any"
-                },
-                "userId": {
-                  "example": "any"
-                },
-                "checkInDate": {
-                  "example": "any"
-                },
-                "checkOutDate": {
-                  "example": "any"
-                },
-                "price": {
-                  "example": "any"
-                }
-              }
-            }
           }
         ],
-        "responses": {
-          "201": {
-            "description": "Created"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
+        "responses": {}
       },
       "delete": {
+        "tags": [
+          "Reservation"
+        ],
         "description": "",
         "parameters": [
           {
@@ -418,64 +407,33 @@
             "type": "string"
           }
         ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
+        "responses": {}
       }
     },
     "/location/": {
       "get": {
-        "description": "",
-        "produces": [
-          "application/json"
+        "tags": [
+          "Locations"
         ],
+        "description": "",
         "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
+        "responses": {}
       },
       "post": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "locationType": {
-                  "example": "any"
-                },
-                "locationName": {
-                  "example": "any"
-                }
-              }
-            }
-          }
+        "tags": [
+          "Locations"
         ],
-        "responses": {
-          "201": {
-            "description": "Created"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
+        "description": "",
+        "parameters": [],
+        "responses": {}
       }
     },
     "/location/{id}": {
       "get": {
-        "description": "",
-        "produces": [
-          "application/json"
+        "tags": [
+          "Locations"
         ],
+        "description": "",
         "parameters": [
           {
             "name": "id",
@@ -484,13 +442,12 @@
             "type": "string"
           }
         ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
+        "responses": {}
       },
       "put": {
+        "tags": [
+          "Locations"
+        ],
         "description": "",
         "parameters": [
           {
@@ -498,33 +455,14 @@
             "in": "path",
             "required": true,
             "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "locationType": {
-                  "example": "any"
-                },
-                "locationName": {
-                  "example": "any"
-                }
-              }
-            }
           }
         ],
-        "responses": {
-          "201": {
-            "description": "Created"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
+        "responses": {}
       },
       "delete": {
+        "tags": [
+          "Locations"
+        ],
         "description": "",
         "parameters": [
           {
@@ -534,14 +472,7 @@
             "type": "string"
           }
         ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
+        "responses": {}
       }
     },
     "/api-docs": {
