@@ -2,7 +2,7 @@
 const router = require('express').Router();
 //const router = express.Router();
 
-const auth = require('../middleware/swaggerAuth');
+const {auth} = require('../middleware/swaggerAuth');
 const user = require('./user');
 
 // const indexcontroller = require("../controller/index");

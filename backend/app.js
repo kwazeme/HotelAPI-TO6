@@ -1,3 +1,4 @@
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongodb = require('./db/connect');
@@ -9,6 +10,7 @@ const cors = require('cors');
       
       const dotenv = require("dotenv");
       dotenv.config();
+      
 //------------------------------------------------------------------------------------------------
 
 // install express
@@ -17,7 +19,8 @@ const { auth } = require('express-openid-connect');
 app
   .use(bodyParser.json())
   .use(cors())
-  .use('/', require('./route'));
+  .use('/', require('./route'))
+  .use(auth(config));
 
 //Joseph Garner: 10-17-22 ------------------------------------------------------------------------
           const config = {
