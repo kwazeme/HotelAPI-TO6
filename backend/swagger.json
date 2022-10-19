@@ -1,48 +1,14 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Merriott Hotel API Team",
-    "description": "CSE340 Team 06 API Project",
+    "title": "HOTEL API",
+    "description": "HOTEL API",
     "version": "1.0.0"
   },
   "host": "hotelapiteamproject.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
-  ],
-  "tags": [
-    {
-      "name": "Users",
-      "description": "user collection routes",
-      "externalDocs": {
-        "description": "",
-        "url": "https://hotelapiteamproject.onrender.com/user"
-      }
-    },
-    {
-      "name": "Staff",
-      "description": "hotel staff routes",
-      "externalDocs": {
-        "description": "",
-        "url": "https://hotelapiteamproject.onrender.com/staff"
-      }
-    },
-    {
-      "name": "Reservation",
-      "description": "hotel reservation routes",
-      "externalDocs": {
-        "description": "",
-        "url": "https://hotelapiteamproject.onrender.com/reservations"
-      }
-    },
-    {
-      "name": "Locations",
-      "description": "merriott hotel locations",
-      "externalDocs": {
-        "description": "",
-        "url": "https://hotelapiteamproject.onrender.com/locations"
-      }
-    }
   ],
   "paths": {
     "/user/": {
@@ -146,10 +112,19 @@
                 "lastName": {
                   "example": "any"
                 },
-                "email": {
+                "userLevel": {
                   "example": "any"
                 },
-                "phone": {
+                "role": {
+                  "example": "any"
+                },
+                "department": {
+                  "example": "any"
+                },
+                "transactionCount": {
+                  "example": "any"
+                },
+                "email": {
                   "example": "any"
                 }
               }
@@ -222,13 +197,16 @@
                 "staffType": {
                   "example": "any"
                 },
-                "userId": {
+                "firstName": {
                   "example": "any"
                 },
-                "checkInDate": {
+                "lastName": {
                   "example": "any"
                 },
-                "checkOutDate": {
+                "email": {
+                  "example": "any"
+                },
+                "phone": {
                   "example": "any"
                 }
               }
@@ -279,9 +257,43 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "locationId": {
+                  "example": "any"
+                },
+                "staffType": {
+                  "example": "any"
+                },
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "phone": {
+                  "example": "any"
+                }
+              }
+            }
           }
         ],
-        "responses": {}
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       },
       "delete": {
         "tags": [
@@ -296,7 +308,14 @@
             "type": "string"
           }
         ],
-        "responses": {}
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
     },
     "/reservation/": {
@@ -340,6 +359,9 @@
                   "example": "any"
                 },
                 "checkOutDate": {
+                  "example": "any"
+                },
+                "price": {
                   "example": "any"
                 }
               }
@@ -390,9 +412,43 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "locationId": {
+                  "example": "any"
+                },
+                "roomId": {
+                  "example": "any"
+                },
+                "userId": {
+                  "example": "any"
+                },
+                "checkInDate": {
+                  "example": "any"
+                },
+                "checkOutDate": {
+                  "example": "any"
+                },
+                "price": {
+                  "example": "any"
+                }
+              }
+            }
           }
         ],
-        "responses": {}
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       },
       "delete": {
         "tags": [
@@ -407,7 +463,14 @@
             "type": "string"
           }
         ],
-        "responses": {}
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
     },
     "/location/": {
@@ -416,16 +479,46 @@
           "Locations"
         ],
         "description": "",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       },
       "post": {
         "tags": [
           "Locations"
         ],
         "description": "",
-        "parameters": [],
-        "responses": {}
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "locationType": {
+                  "example": "any"
+                },
+                "locationName": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
     },
     "/location/{id}": {
@@ -434,6 +527,9 @@
           "Locations"
         ],
         "description": "",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -442,7 +538,11 @@
             "type": "string"
           }
         ],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       },
       "put": {
         "tags": [
@@ -455,9 +555,31 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "locationType": {
+                  "example": "any"
+                },
+                "locationName": {
+                  "example": "any"
+                }
+              }
+            }
           }
         ],
-        "responses": {}
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       },
       "delete": {
         "tags": [
@@ -472,7 +594,14 @@
             "type": "string"
           }
         ],
-        "responses": {}
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
     },
     "/api-docs": {
