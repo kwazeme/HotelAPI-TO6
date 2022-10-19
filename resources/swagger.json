@@ -1,34 +1,46 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "1.0.0",
-    "title": "Merriot Hotels API",
-    "description": "Merriott Hotels Catalogue and Booking information.Demo Academic Purposes Only"
+    "title": "Merriott Hotel API Team",
+    "description": "CSE340 Team 06 API Project",
+    "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "hotelapiteamproject.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
   ],
   "tags": [
     {
-      "name": "user",
-      "description": "Merriot Hotel users",
+      "name": "Users",
+      "description": "user collection routes",
       "externalDocs": {
         "description": "",
-        "url": ""
+        "url": "https://hotelapiteamproject.onrender.com/user"
       }
     },
     {
-      "name": "reservations",
-      "description": "Merriot Booking User & Booking Information"
-    },
-    {
-      "name": "developing",
-      "description": "",
+      "name": "Staff",
+      "description": "hotel staff routes",
       "externalDocs": {
         "description": "",
-        "url": ""
+        "url": "https://hotelapiteamproject.onrender.com/staff"
+      }
+    },
+    {
+      "name": "Reservation",
+      "description": "hotel reservation routes",
+      "externalDocs": {
+        "description": "",
+        "url": "https://hotelapiteamproject.onrender.com/reservations"
+      }
+    },
+    {
+      "name": "Locations",
+      "description": "merriott hotel locations",
+      "externalDocs": {
+        "description": "",
+        "url": "https://hotelapiteamproject.onrender.com/locations"
       }
     }
   ],
@@ -36,9 +48,9 @@
     "/user/": {
       "get": {
         "tags": [
-          "Catalogue"
+          "Users"
         ],
-        "description": "Merriott Hotels",
+        "description": "",
         "produces": [
           "application/json"
         ],
@@ -51,12 +63,9 @@
       },
       "post": {
         "tags": [
-          "Catalogue"
+          "Users"
         ],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "body",
@@ -64,28 +73,16 @@
             "schema": {
               "type": "object",
               "properties": {
-                "imageurl": {
+                "firstName": {
                   "example": "any"
                 },
-                "hotel": {
-                  "example": "any"
-                },
-                "rating": {
-                  "example": "any"
-                },
-                "description": {
-                  "example": "any"
-                },
-                "phone": {
+                "lastName": {
                   "example": "any"
                 },
                 "email": {
                   "example": "any"
                 },
-                "website": {
-                  "example": "any"
-                },
-                "book_now": {
+                "phone": {
                   "example": "any"
                 }
               }
@@ -102,10 +99,10 @@
         }
       }
     },
-    "/ss_hotels/{id}": {
+    "/user/{id}": {
       "get": {
         "tags": [
-          "Catalogue"
+          "Users"
         ],
         "description": "",
         "produces": [
@@ -127,7 +124,7 @@
       },
       "put": {
         "tags": [
-          "Catalogue"
+          "Users"
         ],
         "description": "",
         "parameters": [
@@ -143,28 +140,16 @@
             "schema": {
               "type": "object",
               "properties": {
-                "imageurl": {
+                "firstName": {
                   "example": "any"
                 },
-                "hotel": {
-                  "example": "any"
-                },
-                "rating": {
-                  "example": "any"
-                },
-                "description": {
-                  "example": "any"
-                },
-                "phone": {
+                "lastName": {
                   "example": "any"
                 },
                 "email": {
                   "example": "any"
                 },
-                "website": {
-                  "example": "any"
-                },
-                "book_now": {
+                "phone": {
                   "example": "any"
                 }
               }
@@ -172,8 +157,8 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
+          "201": {
+            "description": "Created"
           },
           "500": {
             "description": "Internal Server Error"
@@ -182,7 +167,7 @@
       },
       "delete": {
         "tags": [
-          "Catalogue"
+          "Users"
         ],
         "description": "",
         "parameters": [
@@ -203,12 +188,12 @@
         }
       }
     },
-    "/reservations/": {
+    "/staff/": {
       "get": {
         "tags": [
-          "reservations"
+          "Staff"
         ],
-        "description": "User reservations collection",
+        "description": "",
         "produces": [
           "application/json"
         ],
@@ -221,12 +206,9 @@
       },
       "post": {
         "tags": [
-          "reservations"
+          "Staff"
         ],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "body",
@@ -234,28 +216,19 @@
             "schema": {
               "type": "object",
               "properties": {
-                "firstname": {
+                "locationId": {
                   "example": "any"
                 },
-                "lastname": {
+                "staffType": {
                   "example": "any"
                 },
-                "hotel_info": {
+                "userId": {
                   "example": "any"
                 },
-                "check_in_date": {
+                "checkInDate": {
                   "example": "any"
                 },
-                "check_out_date": {
-                  "example": "any"
-                },
-                "number_adults": {
-                  "example": "any"
-                },
-                "number_children": {
-                  "example": "any"
-                },
-                "payment_method": {
+                "checkOutDate": {
                   "example": "any"
                 }
               }
@@ -272,10 +245,10 @@
         }
       }
     },
-    "/reservations/{id}": {
+    "/staff/{id}": {
       "get": {
         "tags": [
-          "reservations"
+          "Staff"
         ],
         "description": "",
         "produces": [
@@ -297,7 +270,7 @@
       },
       "put": {
         "tags": [
-          "reservations"
+          "Staff"
         ],
         "description": "",
         "parameters": [
@@ -306,35 +279,67 @@
             "in": "path",
             "required": true,
             "type": "string"
-          },
+          }
+        ],
+        "responses": {}
+      },
+      "delete": {
+        "tags": [
+          "Staff"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/reservation/": {
+      "get": {
+        "tags": [
+          "Reservation"
+        ],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Reservation"
+        ],
+        "description": "",
+        "parameters": [
           {
             "name": "body",
             "in": "body",
             "schema": {
               "type": "object",
               "properties": {
-                "firstname": {
+                "locationId": {
                   "example": "any"
                 },
-                "lastname": {
+                "roomId": {
                   "example": "any"
                 },
-                "hotel_info": {
+                "userId": {
                   "example": "any"
                 },
-                "check_in_date": {
+                "checkInDate": {
                   "example": "any"
                 },
-                "check_out_date": {
-                  "example": "any"
-                },
-                "number_adults": {
-                  "example": "any"
-                },
-                "number_children": {
-                  "example": "any"
-                },
-                "payment_method": {
+                "checkOutDate": {
                   "example": "any"
                 }
               }
@@ -342,17 +347,41 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
+          "201": {
+            "description": "Created"
           },
           "500": {
             "description": "Internal Server Error"
           }
         }
-      },
-      "delete": {
+      }
+    },
+    "/reservation/{id}": {
+      "get": {
         "tags": [
-          "reservations"
+          "Reservation"
+        ],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Reservation"
         ],
         "description": "",
         "parameters": [
@@ -363,14 +392,87 @@
             "type": "string"
           }
         ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "500": {
-            "description": "Internal Server Error"
+        "responses": {}
+      },
+      "delete": {
+        "tags": [
+          "Reservation"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
           }
-        }
+        ],
+        "responses": {}
+      }
+    },
+    "/location/": {
+      "get": {
+        "tags": [
+          "Locations"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      },
+      "post": {
+        "tags": [
+          "Locations"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/location/{id}": {
+      "get": {
+        "tags": [
+          "Locations"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      },
+      "put": {
+        "tags": [
+          "Locations"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      },
+      "delete": {
+        "tags": [
+          "Locations"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
       }
     },
     "/api-docs": {
