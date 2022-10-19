@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const indexcontroller = require("../controller/index");
+
+const indexcontroller = require("../controller/user");
 
 router.get("/", indexcontroller.usersGet);
 router.get("/:id", indexcontroller.userGet);
