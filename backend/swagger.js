@@ -5,7 +5,7 @@ const doc = {
     title: "HOTEL API",
     description: "HOTEL API",
   },
-  host: "hotelapiteamproject.onrender.com",
+  host: "hotelapiteamproject.onrender.com/",
   schemes: ["https"],
 };
 
