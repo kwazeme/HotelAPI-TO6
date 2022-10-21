@@ -5,8 +5,8 @@ const doc = {
     title: "HOTEL API",
     description: "HOTEL API",
   },
-  host: "localhost:8080",
-  schemes: ["http"],
+  host: "hotelapiteamproject.onrender",
+  schemes: ["https"],
 };
 
 const outputFile = "./swagger.json";

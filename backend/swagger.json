@@ -5,7 +5,7 @@
     "description": "CSE340 Team 06 API Project",
     "version": "1.0.0"
   },
-  "host": "hotelapiteamproject.onrender.com",
+  "host": "hotelapiteamproject.onrender",
   "basePath": "/",
   "schemes": [
     "https"
@@ -16,7 +16,7 @@
       "description": "user collection routes",
       "externalDocs": {
         "description": "",
-        "url": "https://hotelapiteamproject.onrender.com/user"
+        "url": "https://hotelapiteamproject.onrender/user"
       }
     },
     {
@@ -24,7 +24,7 @@
       "description": "hotel staff routes",
       "externalDocs": {
         "description": "",
-        "url": "https://hotelapiteamproject.onrender.com/staff"
+        "url": "https://hotelapiteamproject.onrender/staff"
       }
     },
     {
@@ -32,7 +32,7 @@
       "description": "hotel reservation routes",
       "externalDocs": {
         "description": "",
-        "url": "https://hotelapiteamproject.onrender.com/reservations"
+        "url": "https://hotelapiteamproject.onrender/reservations"
       }
     },
     {
@@ -40,7 +40,7 @@
       "description": "marriot hotel locations",
       "externalDocs": {
         "description": "",
-        "url": "https://hotelapiteamproject.onrender.com/locations"
+        "url": "https://hotelapiteamproject.onrender/locations"
       }
     }
   ],

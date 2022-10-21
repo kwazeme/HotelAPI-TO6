@@ -25,7 +25,7 @@ const config = {
   authRequired: false,
   auth0Logout: true,
   secret: 'a long, randomly-generated string stored in env',
-  baseURL: 'https://hotelapiteamproject.onrender.com',
+  baseURL: 'https://hotelapiteamproject.onrender',
   clientID: 'tUx1iTOSWaGf0I8nYGgaABCfUxywUMxV',
   issuerBaseURL: 'https://dev-z2n2yn-s.us.auth0.com'
 };
