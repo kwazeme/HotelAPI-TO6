@@ -24,10 +24,10 @@ app
 const config = {
   authRequired: false,
   auth0Logout: true,
-  secret: SECRET,
-  baseURL: BASE_URL,
-  clientID: CLIENTID,
-  issuerBaseURL: ISSUER_BASE_URL
+  secret: process.env.SECRET,
+  baseURL: process.env.BASE_URL,
+  clientID: process.env.CLIENTID,
+  issuerBaseURL: process.env.ISSUER_BASE_URL
 };
 
 // auth router attaches /login, /logout, and /callback routes to the baseURL
