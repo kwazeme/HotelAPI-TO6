@@ -92,11 +92,12 @@ const userPut = async (req, res) => {
   const user = {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
-    userLevel: req.body.userLevel,
+    /*userLevel: req.body.userLevel,
     role: req.body.role,
     department: req.body.department,
-    transactionCount: req.body.transactionCount,
+    transactionCount: req.body.transactionCount,*/
     email: req.body.email,
+    phone: req.body.phone
   };
   const result = await mongodb
     .getDb()

@@ -20,6 +20,6 @@ const authorize = async (req,res,next)=>{
     }
     res.status(403).send('Access denied. You must log in first');
 }
-
+//return authorize;
 module.exports = authorize;
 //-------------------------------------------------------------------->

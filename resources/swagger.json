@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Merriott Hotel API Team",
+    "title": "marriot Hotel API Team",
     "description": "CSE340 Team 06 API Project",
     "version": "1.0.0"
   },
@@ -37,7 +37,7 @@
     },
     {
       "name": "Locations",
-      "description": "merriott hotel locations",
+      "description": "marriot hotel locations",
       "externalDocs": {
         "description": "",
         "url": "https://hotelapiteamproject.onrender.com/locations"

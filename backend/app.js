@@ -3,49 +3,51 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongodb = require('./db/connect');
 const port = process.env.PORT || 8080;
+const { auth } = require('express-openid-connect');
 
 const cors = require('cors');
 
 //Joseph Garner: 10-17-22 ------------------------------------------------------------------------
-      
-      const dotenv = require("dotenv");
-      dotenv.config();
-      
+
+const dotenv = require("dotenv");
+dotenv.config();
+
 //------------------------------------------------------------------------------------------------
 
 // install express
 const app = express();
-const { auth } = require('express-openid-connect');
+
 app
   .use(bodyParser.json())
-  .use(cors())
-  .use('/', require('./route'))
-  .use(auth(config));
+  .use(cors());
+
+const config = {
+  authRequired: false,
+  auth0Logout: true,
+  secret: 'a long, randomly-generated string stored in env',
+  baseURL: 'https://hotelapiteamproject.onrender.com',
+  clientID: 'tUx1iTOSWaGf0I8nYGgaABCfUxywUMxV',
+  issuerBaseURL: 'https://dev-z2n2yn-s.us.auth0.com'
+};
+
+// auth router attaches /login, /logout, and /callback routes to the baseURL
+app.use(auth(config));
+//.use(auth(config));
 
 //Joseph Garner: 10-17-22 ------------------------------------------------------------------------
-          const config = {
-            authRequired: false,
-            auth0Logout: true,
-            secret: process.env.SECRET,
-            baseURL: process.env.BASE_URL,
-            clientID: process.env.CLIENTID,
-            issuerBaseURL: process.env.ISSUER_BASE_URL,
-          };
-          //const route = require('./route');
-            app.use(auth(config));
 
-            app.get('/',(req,res)=>
-              {
-                  res.send(req.oidc.isAuthenticated()?'logged in':'logged out');
-              }
-            );
-            //app.use(route);
+// req.isAuthenticated is provided from the auth router
+app.get('/', (req, res) => {
+  res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
+});
+
+app.use('/', require('./route'));
 //-----------------------------------------------------------------------------------------
 
-  process.on('uncaughtException', (err, origin) => {
-    console.log(process.stderr.fd, `Caught exception: ${err}\n` + `Exception origin: ${origin}`);
-  });
-  
+process.on('uncaughtException', (err, origin) => {
+  console.log(process.stderr.fd, `Caught exception: ${err}\n` + `Exception origin: ${origin}`);
+});
+
 mongodb.initDb((err) => {
   if (err) {
     console.log(err);

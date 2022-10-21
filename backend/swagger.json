@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Merriott Hotel API Team",
+    "title": "marriot Hotel API Team",
     "description": "CSE340 Team 06 API Project",
     "version": "1.0.0"
   },
@@ -37,7 +37,7 @@
     },
     {
       "name": "Locations",
-      "description": "merriott hotel locations",
+      "description": "marriot hotel locations",
       "externalDocs": {
         "description": "",
         "url": "https://hotelapiteamproject.onrender.com/locations"
@@ -390,6 +390,40 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+
+
+          {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+          
+            "locationId":{
+              "example": ""
+            },
+
+            "roomId":{
+              "example":""
+            },
+
+            "userId":{
+              "example":""
+            },
+
+            "checkInDate":{
+              "example":""
+            },
+
+            "checkOutDate":{
+              "example":""
+            },
+            "price":{
+              "example":"" 
+            }
+              }
+            }
           }
         ],
         "responses": {}
@@ -424,7 +458,33 @@
           "Locations"
         ],
         "description": "",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+
+                "location_area":{
+                  "example":""
+                },
+                "location_type":{
+                  "example":""
+                },
+                "room":{
+                  "example":""
+                },
+                "locationName":{
+                  "example":""
+                },
+                "locationType":{
+                  "example":""
+                }
+              }
+            }
+          }
+        ],
         "responses": {}
       }
     },
@@ -455,6 +515,32 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+
+
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "location_area":{
+                  "example":""
+                },
+                "location_type":{
+                  "example":""
+                },
+                "room":{
+                  "example":""
+                },
+                "locationName":{
+                  "example":""
+                },
+                "locationType":{
+                  "example":""
+                }
+              }
+            }
           }
         ],
         "responses": {}
