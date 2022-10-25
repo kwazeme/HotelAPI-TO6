@@ -5,7 +5,7 @@ const saveUser = (req, res, next) => {
     firstName: "required|string",
     lastName: "required|string",
     email: "required|email",
-    phone: "required|int"
+    phone: "required|string"
   };
 
   validator(req.body, validationRule, {}, (err, status) => {
@@ -50,7 +50,7 @@ const saveStaff = (req, res, next) => {
         firstName: "required|string",
         lastName: "required|string",
         email: "required|string",
-        phone: "required|int"
+        phone: "required|string"
     };
   
     validator(req.body, validationRule, {}, (err, status) => {
@@ -73,7 +73,7 @@ const saveStaff = (req, res, next) => {
         userId: "required|string",
         checkInDate: "required|string",
         checkOutDate: "required|string",
-        price: "required|int"
+        price: "required|string"
     };
   
     validator(req.body, validationRule, {}, (err, status) => {
