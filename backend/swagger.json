@@ -1,8 +1,8 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "marriot Hotel API Team",
-    "description": "CSE340 Team 06 API Project",
+    "title": "HOTEL API",
+    "description": "HOTEL API",
     "version": "1.0.0"
   },
   "host": "hotelapiteamproject.onrender.com",
@@ -10,46 +10,9 @@
   "schemes": [
     "https"
   ],
-  "tags": [
-    {
-      "name": "Users",
-      "description": "user collection routes",
-      "externalDocs": {
-        "description": "",
-        "url": "https://hotelapiteamproject.onrender.com/user"
-      }
-    },
-    {
-      "name": "Staff",
-      "description": "hotel staff routes",
-      "externalDocs": {
-        "description": "",
-        "url": "https://hotelapiteamproject.onrender.com/staff"
-      }
-    },
-    {
-      "name": "Reservation",
-      "description": "hotel reservation routes",
-      "externalDocs": {
-        "description": "",
-        "url": "https://hotelapiteamproject.onrender.com/reservations"
-      }
-    },
-    {
-      "name": "Locations",
-      "description": "marriot hotel locations",
-      "externalDocs": {
-        "description": "",
-        "url": "https://hotelapiteamproject.onrender.com/locations"
-      }
-    }
-  ],
   "paths": {
     "/user/": {
       "get": {
-        "tags": [
-          "Users"
-        ],
         "description": "",
         "produces": [
           "application/json"
@@ -58,13 +21,13 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       },
       "post": {
-        "tags": [
-          "Users"
-        ],
         "description": "",
         "parameters": [
           {
@@ -92,6 +55,12 @@
         "responses": {
           "201": {
             "description": "Created"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "412": {
+            "description": "Precondition Failed"
           },
           "500": {
             "description": "Internal Server Error"
@@ -101,9 +70,6 @@
     },
     "/user/{id}": {
       "get": {
-        "tags": [
-          "Users"
-        ],
         "description": "",
         "produces": [
           "application/json"
@@ -119,13 +85,13 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       },
       "put": {
-        "tags": [
-          "Users"
-        ],
         "description": "",
         "parameters": [
           {
@@ -160,15 +126,18 @@
           "201": {
             "description": "Created"
           },
+          "403": {
+            "description": "Forbidden"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
           "500": {
             "description": "Internal Server Error"
           }
         }
       },
       "delete": {
-        "tags": [
-          "Users"
-        ],
         "description": "",
         "parameters": [
           {
@@ -182,6 +151,9 @@
           "204": {
             "description": "No Content"
           },
+          "403": {
+            "description": "Forbidden"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -190,9 +162,6 @@
     },
     "/staff/": {
       "get": {
-        "tags": [
-          "Staff"
-        ],
         "description": "",
         "produces": [
           "application/json"
@@ -201,13 +170,13 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       },
       "post": {
-        "tags": [
-          "Staff"
-        ],
         "description": "",
         "parameters": [
           {
@@ -222,13 +191,16 @@
                 "staffType": {
                   "example": "any"
                 },
-                "userId": {
+                "firstName": {
                   "example": "any"
                 },
-                "checkInDate": {
+                "lastName": {
                   "example": "any"
                 },
-                "checkOutDate": {
+                "email": {
+                  "example": "any"
+                },
+                "phone": {
                   "example": "any"
                 }
               }
@@ -239,6 +211,12 @@
           "201": {
             "description": "Created"
           },
+          "403": {
+            "description": "Forbidden"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -247,9 +225,6 @@
     },
     "/staff/{id}": {
       "get": {
-        "tags": [
-          "Staff"
-        ],
         "description": "",
         "produces": [
           "application/json"
@@ -265,13 +240,13 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       },
       "put": {
-        "tags": [
-          "Staff"
-        ],
         "description": "",
         "parameters": [
           {
@@ -279,14 +254,51 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "locationId": {
+                  "example": "any"
+                },
+                "staffType": {
+                  "example": "any"
+                },
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "phone": {
+                  "example": "any"
+                }
+              }
+            }
           }
         ],
-        "responses": {}
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       },
       "delete": {
-        "tags": [
-          "Staff"
-        ],
         "description": "",
         "parameters": [
           {
@@ -296,14 +308,21 @@
             "type": "string"
           }
         ],
-        "responses": {}
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
     },
     "/reservation/": {
       "get": {
-        "tags": [
-          "Reservation"
-        ],
         "description": "",
         "produces": [
           "application/json"
@@ -312,13 +331,13 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       },
       "post": {
-        "tags": [
-          "Reservation"
-        ],
         "description": "",
         "parameters": [
           {
@@ -341,6 +360,9 @@
                 },
                 "checkOutDate": {
                   "example": "any"
+                },
+                "price": {
+                  "example": "any"
                 }
               }
             }
@@ -350,6 +372,12 @@
           "201": {
             "description": "Created"
           },
+          "403": {
+            "description": "Forbidden"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -358,9 +386,6 @@
     },
     "/reservation/{id}": {
       "get": {
-        "tags": [
-          "Reservation"
-        ],
         "description": "",
         "produces": [
           "application/json"
@@ -376,13 +401,13 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       },
       "put": {
-        "tags": [
-          "Reservation"
-        ],
         "description": "",
         "parameters": [
           {
@@ -391,47 +416,50 @@
             "required": true,
             "type": "string"
           },
-
-
           {
-          "name": "body",
-          "in": "body",
-          "schema": {
-            "type": "object",
-            "properties": {
-          
-            "locationId":{
-              "example": ""
-            },
-
-            "roomId":{
-              "example":""
-            },
-
-            "userId":{
-              "example":""
-            },
-
-            "checkInDate":{
-              "example":""
-            },
-
-            "checkOutDate":{
-              "example":""
-            },
-            "price":{
-              "example":"" 
-            }
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "locationId": {
+                  "example": "any"
+                },
+                "roomId": {
+                  "example": "any"
+                },
+                "userId": {
+                  "example": "any"
+                },
+                "checkInDate": {
+                  "example": "any"
+                },
+                "checkOutDate": {
+                  "example": "any"
+                },
+                "price": {
+                  "example": "any"
+                }
               }
             }
           }
         ],
-        "responses": {}
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       },
       "delete": {
-        "tags": [
-          "Reservation"
-        ],
         "description": "",
         "parameters": [
           {
@@ -441,22 +469,36 @@
             "type": "string"
           }
         ],
-        "responses": {}
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
     },
     "/location/": {
       "get": {
-        "tags": [
-          "Locations"
-        ],
         "description": "",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
       },
       "post": {
-        "tags": [
-          "Locations"
-        ],
         "description": "",
         "parameters": [
           {
@@ -465,35 +507,38 @@
             "schema": {
               "type": "object",
               "properties": {
-
-                "location_area":{
-                  "example":""
+                "locationType": {
+                  "example": "any"
                 },
-                "location_type":{
-                  "example":""
-                },
-                "room":{
-                  "example":""
-                },
-                "locationName":{
-                  "example":""
-                },
-                "locationType":{
-                  "example":""
+                "locationName": {
+                  "example": "any"
                 }
               }
             }
           }
         ],
-        "responses": {}
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
     },
     "/location/{id}": {
       "get": {
-        "tags": [
-          "Locations"
-        ],
         "description": "",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -502,12 +547,16 @@
             "type": "string"
           }
         ],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
       },
       "put": {
-        "tags": [
-          "Locations"
-        ],
         "description": "",
         "parameters": [
           {
@@ -516,39 +565,38 @@
             "required": true,
             "type": "string"
           },
-
-
           {
             "name": "body",
             "in": "body",
             "schema": {
               "type": "object",
               "properties": {
-                "location_area":{
-                  "example":""
+                "locationType": {
+                  "example": "any"
                 },
-                "location_type":{
-                  "example":""
-                },
-                "room":{
-                  "example":""
-                },
-                "locationName":{
-                  "example":""
-                },
-                "locationType":{
-                  "example":""
+                "locationName": {
+                  "example": "any"
                 }
               }
             }
           }
         ],
-        "responses": {}
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       },
       "delete": {
-        "tags": [
-          "Locations"
-        ],
         "description": "",
         "parameters": [
           {
@@ -558,14 +606,70 @@
             "type": "string"
           }
         ],
-        "responses": {}
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
     },
     "/api-docs": {
       "get": {
         "description": "",
         "parameters": [],
-        "responses": {}
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/login/": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/login/profile": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/login/login": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
       }
     }
   }
