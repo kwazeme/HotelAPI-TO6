@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "HOTEL API",
-    "description": "HOTEL API",
+    "description": "CSE340 Team 06 API Project",
     "version": "1.0.0"
   },
   "host": "hotelapiteamproject.onrender.com",
@@ -10,9 +10,62 @@
   "schemes": [
     "https"
   ],
+  "tags": [
+    {
+      "name": "Users",
+      "description": "user collection routes",
+      "externalDocs": {
+        "description": "",
+        "url": "https://hotelapiteamproject.onrender.com/user"
+      }
+    },
+    {
+      "name": "Staff",
+      "description": "hotel staff routes",
+      "externalDocs": {
+        "description": "",
+        "url": "https://hotelapiteamproject.onrender.com/staff"
+      }
+    },
+    {
+      "name": "Reservation",
+      "description": "hotel reservation routes",
+      "externalDocs": {
+        "description": "",
+        "url": "https://hotelapiteamproject.onrender.com/reservations"
+      }
+    },
+    {
+      "name": "Locations",
+      "description": "marriot hotel locations",
+      "externalDocs": {
+        "description": "",
+        "url": "https://hotelapiteamproject.onrender.com/locations"
+      }
+    },
+    {
+      "name": "Documentation",
+      "description": "OpenAPI SwaggerDocs",
+      "externalDocs": {
+        "description": "",
+        "url": "swagger.io"
+      }
+    },
+    {
+      "name": "Authentication",
+      "description": "oauth 1.0",
+      "externalDocs": {
+        "description": "",
+        "url": "auth0.com"
+      }
+    }
+  ],
   "paths": {
     "/user/": {
       "get": {
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -28,6 +81,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "parameters": [
           {
@@ -70,6 +126,9 @@
     },
     "/user/{id}": {
       "get": {
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -92,6 +151,9 @@
         }
       },
       "put": {
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "parameters": [
           {
@@ -138,6 +200,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "parameters": [
           {
@@ -162,6 +227,9 @@
     },
     "/staff/": {
       "get": {
+        "tags": [
+          "Staff"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -177,6 +245,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Staff"
+        ],
         "description": "",
         "parameters": [
           {
@@ -225,6 +296,9 @@
     },
     "/staff/{id}": {
       "get": {
+        "tags": [
+          "Staff"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -247,6 +321,9 @@
         }
       },
       "put": {
+        "tags": [
+          "Staff"
+        ],
         "description": "",
         "parameters": [
           {
@@ -299,6 +376,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Staff"
+        ],
         "description": "",
         "parameters": [
           {
@@ -323,6 +403,9 @@
     },
     "/reservation/": {
       "get": {
+        "tags": [
+          "Reservation"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -338,6 +421,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Reservation"
+        ],
         "description": "",
         "parameters": [
           {
@@ -386,6 +472,9 @@
     },
     "/reservation/{id}": {
       "get": {
+        "tags": [
+          "Reservation"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -408,6 +497,9 @@
         }
       },
       "put": {
+        "tags": [
+          "Reservation"
+        ],
         "description": "",
         "parameters": [
           {
@@ -460,6 +552,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Reservation"
+        ],
         "description": "",
         "parameters": [
           {
@@ -484,6 +579,9 @@
     },
     "/location/": {
       "get": {
+        "tags": [
+          "Locations"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -499,6 +597,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Locations"
+        ],
         "description": "",
         "parameters": [
           {
@@ -535,6 +636,9 @@
     },
     "/location/{id}": {
       "get": {
+        "tags": [
+          "Locations"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -557,6 +661,9 @@
         }
       },
       "put": {
+        "tags": [
+          "Locations"
+        ],
         "description": "",
         "parameters": [
           {
@@ -597,6 +704,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Locations"
+        ],
         "description": "",
         "parameters": [
           {
@@ -621,6 +731,9 @@
     },
     "/api-docs": {
       "get": {
+        "tags": [
+          "Documentation"
+        ],
         "description": "",
         "parameters": [],
         "responses": {
@@ -632,6 +745,9 @@
     },
     "/login/": {
       "get": {
+        "tags": [
+          "Authentication"
+        ],
         "description": "",
         "parameters": [],
         "responses": {
@@ -646,6 +762,9 @@
     },
     "/login/profile": {
       "get": {
+        "tags": [
+          "Authentication"
+        ],
         "description": "",
         "parameters": [],
         "responses": {
@@ -660,6 +779,9 @@
     },
     "/login/login": {
       "get": {
+        "tags": [
+          "Authentication"
+        ],
         "description": "",
         "parameters": [],
         "responses": {
